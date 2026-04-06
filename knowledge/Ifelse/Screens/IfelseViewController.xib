@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IfelseViewController" customModule="knowledge" customModuleProvider="target">
+            <connections>
+                <outlet property="ifelselabel" destination="8gE-eR-gYW" id="Jo7-md-gAx"/>
+                <outlet property="view" destination="HVM-MW-m0e" id="Vzz-Z0-cqE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="HVM-MW-m0e" customClass="IfelseviewController">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resumo If Else" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-eR-gYW">
+                    <rect key="frame" x="16" y="16" width="361" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJS-mW-ka2">
+                    <rect key="frame" x="16" y="68" width="361" height="81.333333333333314"/>
+                    <string key="text">if e else são estruturas condicionais fundamentais na programação (representando "se" e "senão") que permitem ao código tomar decisões</string>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VmE-dd-7BG"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="PJS-mW-ka2" firstAttribute="leading" secondItem="VmE-dd-7BG" secondAttribute="leading" constant="16" id="Dav-mP-rNB"/>
+                <constraint firstItem="PJS-mW-ka2" firstAttribute="top" secondItem="8gE-eR-gYW" secondAttribute="bottom" constant="16" id="W6c-Xg-tmK"/>
+                <constraint firstItem="8gE-eR-gYW" firstAttribute="top" secondItem="HVM-MW-m0e" secondAttribute="top" constant="16" id="b2J-Tg-O0Q"/>
+                <constraint firstItem="8gE-eR-gYW" firstAttribute="leading" secondItem="HVM-MW-m0e" secondAttribute="leading" constant="16" id="e4s-ze-bhh"/>
+                <constraint firstAttribute="trailing" secondItem="8gE-eR-gYW" secondAttribute="trailing" constant="16" id="vn3-6a-6gZ"/>
+                <constraint firstItem="VmE-dd-7BG" firstAttribute="trailing" secondItem="PJS-mW-ka2" secondAttribute="trailing" constant="16" id="zHW-jG-G08"/>
+            </constraints>
+            <point key="canvasLocation" x="183.96946564885496" y="26.760563380281692"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

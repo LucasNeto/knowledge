@@ -11,7 +11,9 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
    
     
     let knowledgeList: [KnowledgeItem] = [
-        KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController())
+        KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController()),
+        KnowledgeItem(title: "Tela transparente", viewController: UIViewController()),
+        KnowledgeItem(title: "If Else", viewController: IfelseViewController())
     ]
     
 
