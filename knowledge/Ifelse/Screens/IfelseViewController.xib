@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IfelseViewController" customModule="knowledge" customModuleProvider="target">
             <connections>
-                <outlet property="ifelselabel" destination="8gE-eR-gYW" id="Jo7-md-gAx"/>
+                <outlet property="compareTextField1" destination="d6U-C4-AZN" id="PT1-0t-aAL"/>
+                <outlet property="compareTextField2" destination="9EE-3D-wYk" id="1Sh-B3-p0h"/>
+                <outlet property="resultLabel" destination="Ghl-1h-ehZ" id="o35-aj-5fj"/>
                 <outlet property="view" destination="HVM-MW-m0e" id="Vzz-Z0-cqE"/>
             </connections>
         </placeholder>
@@ -32,15 +34,52 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d6U-C4-AZN">
+                    <rect key="frame" x="16" y="181.33333333333334" width="172.66666666666666" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6C1-ll-5Im"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghl-1h-ehZ">
+                    <rect key="frame" x="196.66666666666666" y="341.66666666666669" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Second Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9EE-3D-wYk">
+                    <rect key="frame" x="204.66666666666663" y="181.33333333333334" width="172.33333333333337" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDa-Yt-9Pp">
+                    <rect key="frame" x="149.66666666666666" y="243.33333333333334" width="94" height="34.333333333333343"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Compare"/>
+                    <connections>
+                        <action selector="compareButtonClicked:" destination="-1" eventType="touchUpInside" id="JuP-4E-DXg"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VmE-dd-7BG"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="d6U-C4-AZN" firstAttribute="leading" secondItem="VmE-dd-7BG" secondAttribute="leading" constant="16" id="4FY-Ze-0re"/>
+                <constraint firstItem="VDa-Yt-9Pp" firstAttribute="centerX" secondItem="HVM-MW-m0e" secondAttribute="centerX" id="9W1-ED-Zud"/>
                 <constraint firstItem="PJS-mW-ka2" firstAttribute="leading" secondItem="VmE-dd-7BG" secondAttribute="leading" constant="16" id="Dav-mP-rNB"/>
+                <constraint firstItem="9EE-3D-wYk" firstAttribute="top" secondItem="PJS-mW-ka2" secondAttribute="bottom" constant="32" id="EEC-yd-nHI"/>
+                <constraint firstItem="Ghl-1h-ehZ" firstAttribute="centerX" secondItem="HVM-MW-m0e" secondAttribute="centerX" id="FBH-du-sNo"/>
+                <constraint firstItem="Ghl-1h-ehZ" firstAttribute="top" secondItem="VDa-Yt-9Pp" secondAttribute="bottom" constant="64" id="GHW-M7-cJa"/>
                 <constraint firstItem="PJS-mW-ka2" firstAttribute="top" secondItem="8gE-eR-gYW" secondAttribute="bottom" constant="16" id="W6c-Xg-tmK"/>
                 <constraint firstItem="8gE-eR-gYW" firstAttribute="top" secondItem="HVM-MW-m0e" secondAttribute="top" constant="16" id="b2J-Tg-O0Q"/>
+                <constraint firstItem="9EE-3D-wYk" firstAttribute="leading" secondItem="PJS-mW-ka2" secondAttribute="centerX" constant="8" id="b3a-ld-isd"/>
                 <constraint firstItem="8gE-eR-gYW" firstAttribute="leading" secondItem="HVM-MW-m0e" secondAttribute="leading" constant="16" id="e4s-ze-bhh"/>
+                <constraint firstItem="d6U-C4-AZN" firstAttribute="trailing" secondItem="PJS-mW-ka2" secondAttribute="centerX" constant="-8" id="gm2-GB-Afc"/>
+                <constraint firstItem="VDa-Yt-9Pp" firstAttribute="top" secondItem="d6U-C4-AZN" secondAttribute="bottom" constant="32" id="hgc-EE-SFn"/>
                 <constraint firstAttribute="trailing" secondItem="8gE-eR-gYW" secondAttribute="trailing" constant="16" id="vn3-6a-6gZ"/>
+                <constraint firstItem="VmE-dd-7BG" firstAttribute="trailing" secondItem="9EE-3D-wYk" secondAttribute="trailing" constant="16" id="wih-uG-Qz1"/>
+                <constraint firstItem="d6U-C4-AZN" firstAttribute="top" secondItem="PJS-mW-ka2" secondAttribute="bottom" constant="32" id="z7b-Hv-Adm"/>
                 <constraint firstItem="VmE-dd-7BG" firstAttribute="trailing" secondItem="PJS-mW-ka2" secondAttribute="trailing" constant="16" id="zHW-jG-G08"/>
             </constraints>
             <point key="canvasLocation" x="183.96946564885496" y="26.760563380281692"/>
