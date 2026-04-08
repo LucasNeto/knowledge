@@ -18,46 +18,79 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Variaveis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18I-4j-npl">
-                    <rect key="frame" x="144" y="65" width="104" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variables" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18I-4j-npl">
+                    <rect key="frame" x="132.66666666666666" y="32" width="127.99999999999997" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="rBN-yP-syO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="27"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-Di-6u6">
-                    <rect key="frame" x="16" y="89" width="361" height="720"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <mutableString key="text">- Variável guarda uma informações que preciso.
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-1m-yG1">
+                    <rect key="frame" x="0.0" y="104" width="393" height="748"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="60" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-Di-6u6">
+                            <rect key="frame" x="16" y="0.0" width="361" height="913"/>
+                            <mutableString key="text">Variável guarda uma informações que preciso.
 
-tipos de dados:
+Tipos de dados:
 
 String (Texto):
+Para utilizar "", onde texto fica localizado entre as aspas duplas, para mencionar uma variável em um texto String e necessário utilizar- \()
+Ex:
 
-Para utilizar "", onde texto fica localizado entre as aspas duplas, para mencionar uma vareavel em um texto String e necessario utilizar- \()
-Ex: 
-
-Int, Float e Double (Numeros):
-
-Pode ser numeros interos ou reais ex real idade Int (26 anos), ex Float(1.72 de altura)
-Double - Utilizado em numeros com mais casas decimais.
+Int, Float e Double (Números):
+Pode ser números inteiros ou reais exemplo, Real, idade Int (26 anos), exemplo Inteiro, Float(1.72 de altura).
+OBS: Double - Utilizado em números com mais casas decimais.
 
 Bool:
+Guarda a informação como verdadeiro ou falso.
+Exemplo: var sexoMasc: true
 
-Guarda a informacao como verdadeiro ou falso.
+Para utilizar e nomear uma variável:
+var: Variável cujo valor pode ser alterado após a inicialização.
+let: Constante cujo valor não pode ser alterado após definido.- Variável guarda uma informações que preciso.
 
-Para utilizar e nomear uma variavel:
+Object:
+Informações necessárias que tem uma ligação onde se localizam dentro de uma variável, como por exemplo em cadastro, onde se tem informação sobre Nome, idade, telefone endereço etc...
 
-var: Variável cujo valor pode ser alterado após a inicialização. 
+Exemplo da atividade da ListAnimals:
 
-let: Constante cujo valor não pode ser alterado após definido.</mutableString>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+let animals: [Animal] = [
+
+Animal(name: "Elefante 🐘", habitat: "Natural de Africa e Asia", yearsOld: "Vive 70 anos"),
+
+Animal(name: "Pinguim 🐧", habitat: "Natural da Antartica", yearsOld: "Vive 20 anos") . . .
+</mutableString>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <mutableString key="userLabel">- Variável guarda uma informações que preciso.  tipos de dados:  String (Texto):  Para utilizar "", onde texto fica localizado entre as aspas duplas, para mencionar uma vareavel em um texto String e necessario utilizar- \() Ex:   Int, Float e Double (Numeros):  Pode ser numeros interos ou reais ex real idade Int (26 anos), ex Float(1.72 de altura) Double - Utilizado em numeros com mais casas decimais.  Bool:  Guarda a informacao como verdadeiro ou falso.  Para utilizar e nomear uma variavel:  var: Variável cujo valor pode ser alterado após a inicialização.   let: Constante cujo valor não pode ser alterado após definido.</mutableString>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="E1h-Di-6u6" firstAttribute="top" secondItem="gTa-tZ-4PC" secondAttribute="top" id="487-YC-z2h"/>
+                        <constraint firstItem="gTa-tZ-4PC" firstAttribute="bottom" secondItem="E1h-Di-6u6" secondAttribute="bottom" id="V19-wI-3pj"/>
+                        <constraint firstItem="gTa-tZ-4PC" firstAttribute="trailing" secondItem="E1h-Di-6u6" secondAttribute="trailing" id="gBN-OZ-QOM"/>
+                        <constraint firstItem="E1h-Di-6u6" firstAttribute="leading" secondItem="gTa-tZ-4PC" secondAttribute="leading" id="iyv-Zd-lLJ"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="gTa-tZ-4PC"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="O23-bJ-dTQ"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="f5y-NA-Ieg"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="f5y-NA-Ieg" firstAttribute="trailing" secondItem="E1h-Di-6u6" secondAttribute="trailing" constant="16" id="2IQ-KT-RuW"/>
+                <constraint firstItem="RFV-1m-yG1" firstAttribute="top" secondItem="18I-4j-npl" secondAttribute="bottom" constant="32" id="6pK-Hw-hcV"/>
+                <constraint firstItem="18I-4j-npl" firstAttribute="centerX" secondItem="RWA-iy-CWk" secondAttribute="centerX" id="HVd-1Y-pSP"/>
+                <constraint firstItem="RFV-1m-yG1" firstAttribute="leading" secondItem="RWA-iy-CWk" secondAttribute="leading" id="MVt-qH-ZFb"/>
+                <constraint firstAttribute="bottom" secondItem="RFV-1m-yG1" secondAttribute="bottom" id="fdo-py-9dQ"/>
+                <constraint firstItem="18I-4j-npl" firstAttribute="top" secondItem="RWA-iy-CWk" secondAttribute="top" constant="32" id="qWG-lY-6NN"/>
+                <constraint firstAttribute="trailing" secondItem="RFV-1m-yG1" secondAttribute="trailing" id="sv0-ky-hIQ"/>
+                <constraint firstItem="f5y-NA-Ieg" firstAttribute="leading" secondItem="E1h-Di-6u6" secondAttribute="leading" constant="-16" id="z8f-a7-V7e"/>
+            </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="35.91549295774648"/>
         </view>
     </objects>
