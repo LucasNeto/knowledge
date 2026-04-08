@@ -12,11 +12,10 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let knowledgeList: [KnowledgeItem] = [
         KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController()),
-        KnowledgeItem(title: "Tela em branco", viewController: UIViewController()),
+        KnowledgeItem(title: "Variables", viewController: VariablesViewController()),
         KnowledgeItem(title: "If Else", viewController: IfelseViewController())
     ]
     
-
     let cellReuseIdentifier = "cell"
     
     // don't forget to hook this up from the storyboard

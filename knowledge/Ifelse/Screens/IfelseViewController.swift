@@ -18,9 +18,14 @@ class IfelseViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func compareButtonClicked(_ sender: Any) {
-        if(compareTextField1.text == "" || compareTextField2.text == "" ){
+        
+        
+        let fieldsEmpty : Bool = compareTextField1.text == "" || compareTextField2.text == ""
+        let isEqual : Bool = compareTextField1.text == compareTextField2.text
+        
+        if(fieldsEmpty){
             resultLabel.text = "Favor preencher todos os campos"
-        } else if (compareTextField1.text == compareTextField2.text){
+        } else if (isEqual){
             resultLabel.text = "Sao iguais"
         } else {
             resultLabel.text = "Sao diferentes"
