@@ -37,19 +37,22 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.knowledgeList.count
+        return self.knowledgeList.count        
     }
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! UITableViewCell
         
-        // set the text from the data model
-        cell.textLabel?.text = self.knowledgeList[indexPath.row].title
         
-        return cell
+        if let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier){
+            cell.textLabel?.text = self.knowledgeList[indexPath.row].title
+            cell.imageView?.image = UIImage(named: "search")
+            cell.accessoryType = .disclosureIndicator
+            return cell
+        }
+        return UITableViewCell()
     }
     
 
@@ -57,7 +60,7 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated:true)
         let viewController = self.knowledgeList[indexPath.row].viewController
         self.present(viewController,animated: true)
-            }
+    }
 }
 
 

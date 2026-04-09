@@ -30,8 +30,8 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-1m-yG1">
                     <rect key="frame" x="0.0" y="104" width="393" height="748"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="60" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-Di-6u6">
-                            <rect key="frame" x="16" y="0.0" width="361" height="913"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1h-Di-6u6">
+                            <rect key="frame" x="16" y="0.0" width="361" height="1765"/>
                             <mutableString key="text">Variável guarda uma informações que preciso.
 
 Tipos de dados:
@@ -62,11 +62,43 @@ let animals: [Animal] = [
 Animal(name: "Elefante 🐘", habitat: "Natural de Africa e Asia", yearsOld: "Vive 70 anos"),
 
 Animal(name: "Pinguim 🐧", habitat: "Natural da Antartica", yearsOld: "Vive 20 anos") . . .
-</mutableString>
+
+Dicionário (Dictionary):
+
+Imagine um dicionário de português: você tem a palavra (a *chave*) e busca por ela para encontrar o significado (o *valor*). Ou pense em uma garagem: A vaga é a (chave) te leva ao carro estacionado (valor).
+
+Exemplo:
+
+let vagas2: [String: String] = [
+        "A1":"",
+        "B2":"HB20",
+        "C3":"Onix"
+    ]
+
+ou 
+
+let vagas: Dictionary = ["a1":"", "b2":"HB20" , "c3":"Onix"]
+ou
+
+let vagas = [:]
+
+Opcional (?):
+
+Eles indicam que uma variável pode conter um valor ou ser nula (nil), sendo essenciais para evitar erros de tempo de execução, forçando o tratamento seguro do valor nulo. Definidos com ? (ex: String?), são fundamentais para a segurança do código.
+
+ var lista1: [String]? = [""]
+ if (lista1 != nil) {
+ return  lista!.count
+ }  else  {
+ return 0
+ }
+
+outra forma simplificada:
+return lista1?.count ?? 0 (Se Não esta em ??)</mutableString>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
-                            <mutableString key="userLabel">- Variável guarda uma informações que preciso.  tipos de dados:  String (Texto):  Para utilizar "", onde texto fica localizado entre as aspas duplas, para mencionar uma vareavel em um texto String e necessario utilizar- \() Ex:   Int, Float e Double (Numeros):  Pode ser numeros interos ou reais ex real idade Int (26 anos), ex Float(1.72 de altura) Double - Utilizado em numeros com mais casas decimais.  Bool:  Guarda a informacao como verdadeiro ou falso.  Para utilizar e nomear uma variavel:  var: Variável cujo valor pode ser alterado após a inicialização.   let: Constante cujo valor não pode ser alterado após definido.</mutableString>
+                            <string key="userLabel">- Variável guarda uma informações que preciso.  tipos de dados:  String (Texto):  Para utilizar "", onde texto fica localizado entre as aspas duplas, para mencionar uma vareavel em um texto String e necessario utilizar- \() Ex:   Int, Float e Double (Numeros):  Pode ser numeros interos ou reais ex real idade Int (26 anos), ex Float(1.72 de altura) Double - Utilizado em numeros com mais casas decimais.  Bool:  Guarda a informacao como verdadeiro ou falso.  Para utilizar e nomear uma variavel:  var: Variável cujo valor pode ser alterado após a inicialização.   let: Constante cujo valor não pode ser alterado após definido.</string>
                         </label>
                     </subviews>
                     <constraints>
