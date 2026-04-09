@@ -13,7 +13,8 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
     let knowledgeList: [KnowledgeItem] = [
         KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController()),
         KnowledgeItem(title: "Variables", viewController: VariablesViewController()),
-        KnowledgeItem(title: "If Else", viewController: IfelseViewController())
+        KnowledgeItem(title: "If Else", viewController: IfelseViewController()),
+        KnowledgeItem(title: "Calculator", viewController: CalculatorViewController())
     ]
     
     let cellReuseIdentifier = "cell"
