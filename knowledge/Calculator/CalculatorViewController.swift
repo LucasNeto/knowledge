@@ -17,7 +17,6 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
     }
-
     
     @IBAction func soma(_ sender: Any) {
         let fieldsEmpty : Bool = campoText1.text == "" || campoText2.text == ""
@@ -25,13 +24,57 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
             Result.text = "Favor preencher todos os campos"
             return
         }
-        let numberCampoText1: Int = Int (campoText1.text!) ?? 0
-        let numberCampoText2: Int = Int(campoText2.text!) ?? 0
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional1: String? = campoText1.text
+        
+        var campoDeTextoUmEmString1 : String
+        
+        if campoDeTextoUmEmStringOpcional1 != nil {
+            campoDeTextoUmEmString1 = campoDeTextoUmEmStringOpcional1!
+        } else {
+            campoDeTextoUmEmString1 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
+        var numberCampoText1: Int
+        
+        if campoDeTextoUmEmNumeroOpcional1 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText1 = campoDeTextoUmEmNumeroOpcional1!
+        }
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional2: String? = campoText2.text
+        
+        var campoDeTextoUmEmString2 : String
+        
+        if campoDeTextoUmEmStringOpcional2 != nil {
+            campoDeTextoUmEmString2 = campoDeTextoUmEmStringOpcional2!
+        } else {
+            campoDeTextoUmEmString2 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional2 : Int? = Int(campoDeTextoUmEmString2)
+        var numberCampoText2: Int
+        
+        if campoDeTextoUmEmNumeroOpcional2 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText2 = campoDeTextoUmEmNumeroOpcional2!
+        }
+        
         let resultsoma = numberCampoText1 + numberCampoText2
         let resultText: String? = String(resultsoma)
         Result.text = resultText
         print ("Seu resultado e \(resultsoma)")
     }
+    
     
     @IBAction func sub(_ sender: Any) {
         let fieldsEmpty : Bool = campoText1.text == "" || campoText2.text == ""
@@ -39,12 +82,54 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
             Result.text = "Favor preencher todos os campos"
             return
         }
-        let numberCampoText1: Int = Int(campoText1.text!) ?? 0
-        let numberCampoText2: Int = Int(campoText2.text!) ?? 0
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional1: String? = campoText1.text
+        
+        var campoDeTextoUmEmString1 : String
+        
+        if campoDeTextoUmEmStringOpcional1 != nil {
+            campoDeTextoUmEmString1 = campoDeTextoUmEmStringOpcional1!
+        } else {
+            campoDeTextoUmEmString1 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
+        var numberCampoText1: Int
+        
+        if campoDeTextoUmEmNumeroOpcional1 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText1 = campoDeTextoUmEmNumeroOpcional1!
+        }
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional2: String? = campoText2.text
+        
+        var campoDeTextoUmEmString2 : String
+        
+        if campoDeTextoUmEmStringOpcional2 != nil {
+            campoDeTextoUmEmString2 = campoDeTextoUmEmStringOpcional2!
+        } else {
+            campoDeTextoUmEmString2 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional2 : Int? = Int(campoDeTextoUmEmString2)
+        var numberCampoText2: Int
+        
+        if campoDeTextoUmEmNumeroOpcional2 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText2 = campoDeTextoUmEmNumeroOpcional2!
+        }
+        
         let resultsub = numberCampoText1 - numberCampoText2
-        let resultText: String? = String(resultsub)
-        Result.text = resultText
-        print ("Seu resultado e \(resultsub)")    }
+        Result.text = "Seu resultado e \(resultsub)"
+    }
     
     @IBAction func mult(_ sender: Any) {
         let fieldsEmpty : Bool = campoText1.text == "" || campoText2.text == ""
@@ -52,12 +137,54 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
             Result.text = "Favor preencher todos os campos"
             return
         }
-        let numberCampoText1: Int = Int(campoText1.text!) ?? 0
-        let numberCampoText2: Int = Int(campoText2.text!) ?? 0
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional1: String? = campoText1.text
+        
+        var campoDeTextoUmEmString1 : String
+        
+        if campoDeTextoUmEmStringOpcional1 != nil {
+            campoDeTextoUmEmString1 = campoDeTextoUmEmStringOpcional1!
+        } else {
+            campoDeTextoUmEmString1 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
+        var numberCampoText1: Int
+        
+        if campoDeTextoUmEmNumeroOpcional1 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText1 = campoDeTextoUmEmNumeroOpcional1!
+        }
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional2: String? = campoText2.text
+        
+        var campoDeTextoUmEmString2 : String
+        
+        if campoDeTextoUmEmStringOpcional2 != nil {
+            campoDeTextoUmEmString2 = campoDeTextoUmEmStringOpcional2!
+        } else {
+            campoDeTextoUmEmString2 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional2 : Int? = Int(campoDeTextoUmEmString2)
+        var numberCampoText2: Int
+        
+        if campoDeTextoUmEmNumeroOpcional2 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText2 = campoDeTextoUmEmNumeroOpcional2!
+        }
+        
         let resultmult = numberCampoText1 * numberCampoText2
-        let resultText: String? = String(resultmult)
-        Result.text = resultText
-        print ("Seu resultado e \(resultmult)")    }
+        Result.text = "Seu resultado e \(resultmult)"
+    }
     
     @IBAction func divisao(_ sender: Any) {
         let fieldsEmpty : Bool = campoText1.text == "" || campoText2.text == ""
@@ -65,12 +192,53 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
             Result.text = "Favor preencher todos os campos"
             return
         }
-        let numberCampoText1: Int = Int(campoText1.text!) ?? 0
-        let numberCampoText2: Int = Int(campoText2.text!) ?? 0
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional1: String? = campoText1.text
+        
+        var campoDeTextoUmEmString1 : String
+        
+        if campoDeTextoUmEmStringOpcional1 != nil {
+            campoDeTextoUmEmString1 = campoDeTextoUmEmStringOpcional1!
+        } else {
+            campoDeTextoUmEmString1 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
+        var numberCampoText1: Int
+        
+        if campoDeTextoUmEmNumeroOpcional1 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText1 = campoDeTextoUmEmNumeroOpcional1!
+        }
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional2: String? = campoText2.text
+        
+        var campoDeTextoUmEmString2 : String
+        
+        if campoDeTextoUmEmStringOpcional2 != nil {
+            campoDeTextoUmEmString2 = campoDeTextoUmEmStringOpcional2!
+        } else {
+            campoDeTextoUmEmString2 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional2 : Int? = Int(campoDeTextoUmEmString2)
+        var numberCampoText2: Int
+        
+        if campoDeTextoUmEmNumeroOpcional2 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText2 = campoDeTextoUmEmNumeroOpcional2!
+        }
+        
         let resultDivisao = numberCampoText1 / numberCampoText2
-        let resultText: String? = String(resultDivisao)
-        Result.text = resultText
-        print ("Seu resultado e \(resultDivisao)")    }
+        Result.text = "Seu resultado e \(resultDivisao)"
+    }
     
     @IBAction func resto(_ sender: Any) {
         let fieldsEmpty : Bool = campoText1.text == "" || campoText2.text == ""
@@ -78,12 +246,51 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
             Result.text = "Favor preencher todos os campos"
             return
         }
-        let numberCampoText1: Int = Int (campoText1.text!) ?? 0
-        let numberCampoText2: Int = Int (campoText2.text!) ?? 0
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional1: String? = campoText1.text
+        
+        var campoDeTextoUmEmString1 : String
+        
+        if campoDeTextoUmEmStringOpcional1 != nil {
+            campoDeTextoUmEmString1 = campoDeTextoUmEmStringOpcional1!
+        } else {
+            campoDeTextoUmEmString1 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
+        var numberCampoText1: Int
+        
+        if campoDeTextoUmEmNumeroOpcional1 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText1 = campoDeTextoUmEmNumeroOpcional1!
+        }
+        
+        //Torna String Opcional em Obrigatorio
+        let campoDeTextoUmEmStringOpcional2: String? = campoText2.text
+        
+        var campoDeTextoUmEmString2 : String
+        
+        if campoDeTextoUmEmStringOpcional2 != nil {
+            campoDeTextoUmEmString2 = campoDeTextoUmEmStringOpcional2!
+        } else {
+            campoDeTextoUmEmString2 = ""
+        }
+        
+        // Tranforma String em Num Opcional
+        let campoDeTextoUmEmNumeroOpcional2 : Int? = Int(campoDeTextoUmEmString2)
+        var numberCampoText2: Int
+        
+        if campoDeTextoUmEmNumeroOpcional2 == nil{
+            Result.text = "Prencher todos os campos com Numero"
+            return
+        } else {
+            numberCampoText2 = campoDeTextoUmEmNumeroOpcional2!
+        }
         let resultResto = numberCampoText1 % numberCampoText2
-        let resultText: String? = String(resultResto)
-        Result.text = resultText
-        print ("Seu resultado e \(resultResto)")    }
-    
-    
+        Result.text = "Seu resultado e \(resultResto)"
+    }
 }

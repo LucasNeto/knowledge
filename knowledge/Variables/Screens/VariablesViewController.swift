@@ -93,17 +93,25 @@ class VariablesViewController: UIViewController{
         
     }
     
-    
-    // Opcional
-    // Reotnar a quantidade de linhas na tebela, baseado na lista opcional
-        
-//    var lista1: [String]? = [""]
 //    
-//        if (lista1 != nil) {
-//            return lista!.count
-//        } else {
-//            return 0
-//        }
+//    // Opcional
+//    // Reotnar a quantidade de linhas na tebela, baseado na lista opcional
+//        
+//    var lista1: [String]? = [""]
+//    var quantidadec = 0
+//    
+//    if (lista1 != nil) {
+//        quantidadec =  lista1!.count
+//    } else {
+//        quantidadec =  0
+//    }
+//    
+//    
+//    if (lista1 != nil) {
+//        return lista!.count
+//    } else {
+//        return 0
+//    }
 //
 //    if let templist = lista1 {
 //            return templist.count
@@ -116,8 +124,8 @@ class VariablesViewController: UIViewController{
 //        }
 //        return templist.count
 //    
-            
+//            
 //        return lista1?.count ?? 0
-    
-    
+//    
+//    
 }
