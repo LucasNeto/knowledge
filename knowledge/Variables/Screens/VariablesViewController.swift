@@ -135,10 +135,10 @@ class VariablesViewController: UIViewController{
 
 
 
-
-        var name: String = "Gui"
-        var Number: Int = 19
-        var falso: Bool = true
-        var armarios: Dictionary = ["A1":"Lucas"]
-        var Array: Array = [1,2]
+// exemplos:
+//        var name: String = "Gui"
+//        var Number: Int = 19
+//        var falso: Bool = true
+//        var armarios: Dictionary = ["A1":"Lucas"]
+//        var Array: Array = [1,2]
 
