@@ -70,9 +70,7 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         }
         
         let resultsoma = numberCampoText1 + numberCampoText2
-        let resultText: String? = String(resultsoma)
-        Result.text = resultText
-        print ("Seu resultado e \(resultsoma)")
+        Result.text = "Seu resultado e \(resultsoma)"
     }
     
     
