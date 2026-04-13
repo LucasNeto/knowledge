@@ -32,7 +32,8 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         let handler: (Int,Int) -> Int = { number1, number2 in
             return number1 + number2
         }
-        calculate(operationHandler: handler)    }
+        calculate(operationHandler: handler)
+    }
     
     // Closure de subtração
     @IBAction func sub(_ sender: Any) {
@@ -47,7 +48,8 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         let handler: (Int,Int) -> Int = { number1, number2 in
             return number1 * number2
         }
-        calculate(operationHandler: handler)    }
+        calculate(operationHandler: handler)
+    }
     
     // Verifica se o segundo campo é "0" (evita divisão por zero)
     // Mostra mensagem de erro e interrompe execução
@@ -55,9 +57,9 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func divisao(_ sender: Any) {
         let divi0 : Bool = campoText2.text == "0"
-        if (divi0){
+        if (divi0) {
             Result.text = "Nao e possivel reliazar divisao com numero 0"
-        return
+            return
         }
         
         let handler: (Int,Int) -> Int = { number1, number2 in
@@ -71,7 +73,7 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         let divi0 : Bool = campoText2.text == "0"
         if (divi0){
             Result.text = "Nao e possivel reliazar calculo com numero 0"
-        return
+            return
         }
 //        let handler: (Int,Int) -> Int = { number1, number2 in
 //            return number1 % number2
@@ -127,7 +129,7 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
     // Se não for número válido, retorna nil
     private func convertStringToInt (text:String?) -> Int? {
         return Int(text ?? "")
-        
+    }
         //        Torna String Opcional em Obrigatorio
         //        let campoDeTextoUmEmStringOpcional1: String? = text
         //        var campoDeTextoUmEmString1 : String
@@ -142,5 +144,5 @@ class CalculatorViewController: UIViewController, UITextFieldDelegate{
         //        let campoDeTextoUmEmNumeroOpcional1 : Int? = Int(campoDeTextoUmEmString1)
         //        return campoDeTextoUmEmNumeroOpcional1
         //
-    }
+    
 }
