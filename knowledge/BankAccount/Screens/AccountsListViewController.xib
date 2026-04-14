@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankAccountViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountsListViewController" customModule="knowledge" customModuleProvider="target">
             <connections>
-                <outlet property="ListTableView" destination="Ca3-jy-ZvT" id="HV9-E9-UCZ"/>
-                <outlet property="nameNewAccount" destination="1qH-gl-z5p" id="dLs-zV-rS5"/>
-                <outlet property="newAccount" destination="1uw-yL-842" id="WUE-cN-Pdn"/>
+                <outlet property="listTableView" destination="Ca3-jy-ZvT" id="KCL-AE-vGF"/>
+                <outlet property="nameNewAccountTextField" destination="1qH-gl-z5p" id="WLQ-cT-sK9"/>
+                <outlet property="newAccountTextField" destination="1uw-yL-842" id="ED7-vF-X9b"/>
                 <outlet property="statusNewAccount" destination="tf2-96-bqS" id="CRm-gy-iIM"/>
                 <outlet property="view" destination="2us-c6-Vqu" id="fuZ-Hz-gKC"/>
             </connections>

@@ -16,7 +16,7 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         KnowledgeItem(title: "If Else", viewController: IfelseViewController()),
         KnowledgeItem(title: "Calculator", viewController: CalculatorViewController()),
         KnowledgeItem(title: "Comparison", viewController: ComparisonViewController()),
-        KnowledgeItem(title: "Bank List", viewController: BankAccountViewController())
+        KnowledgeItem(title: "Bank List", viewController: AccountsListViewController())
     ]
     
     let cellReuseIdentifier = "cell"

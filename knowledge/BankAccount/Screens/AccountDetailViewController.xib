@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserBankViewController" customModule="knowledge" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountDetailViewController">
             <connections>
                 <outlet property="balanceAccount" destination="c1X-0g-ap2" id="kqs-fn-YlU"/>
                 <outlet property="depositTextField" destination="io7-eo-Bzi" id="gdw-Z5-Bst"/>
                 <outlet property="nameUser" destination="C0q-LM-74O" id="RIS-Ns-B1R"/>
                 <outlet property="statusTextDep" destination="sLO-3J-Znd" id="iiI-oD-xxo"/>
                 <outlet property="statusTextTransfer" destination="41N-R7-UOu" id="dcK-lq-iXF"/>
-                <outlet property="tarnsferTextField" destination="GUu-x6-P8Q" id="PDk-U2-T4W"/>
+                <outlet property="transferTextField" destination="GUu-x6-P8Q" id="3qV-CR-HAW"/>
                 <outlet property="view" destination="fMf-HF-f99" id="ZTx-4o-sgj"/>
             </connections>
         </placeholder>
