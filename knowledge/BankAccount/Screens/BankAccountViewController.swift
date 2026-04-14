@@ -9,26 +9,29 @@ import UIKit
 
 class BankAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    
+    let cellReuseIdentifier = "cell"
     var bankList: [Listbank1] = [
         Listbank1(name: "Guilherme D.", account: "4669", balance: 2000),
         Listbank1(name: "Larissa D.", account: "5889", balance: 3000)
     ]
     
+    @IBOutlet weak var ListTableView: UITableView!
     @IBOutlet weak var statusNewAccount: UILabel!
-    
     @IBOutlet weak var nameNewAccount: UITextField!
     @IBOutlet weak var newAccount: UITextField!
     
-    
+    // Cria acoes necessarias para criacao de um novo usuario, if na funcao checkEmptyFields e necessario, para cheagem do campo de texto e por ser um campo opcional, no if criado 3 variaveis e senfo a ultima no tipo Listbank1, depois bankList.appende para adicionar a infomacao na variavel bankList, e por fim ListTableView.reloadData() para atualizar as infos na tabela.
     @IBAction func buttonAddNewAccount(_ sender: Any) {
-        checkEmptyFields()
+        if !checkEmptyFields() {
+            if let nameNew = nameNewAccount.text,
+               let accountNew = newAccount.text{
+                let newregistro = Listbank1(name:nameNew , account:accountNew, balance:0)
+                    bankList.append(newregistro)
+                print (bankList)
+                ListTableView.reloadData()
+            }
+        }
     }
-    
-    @IBOutlet weak var ListTableView: UITableView!
-    
-    let cellReuseIdentifier = "cell"
-    
     
     // Copiado da LIST ANIMALS
     override func viewDidLoad() {
@@ -46,8 +49,7 @@ class BankAccountViewController: UIViewController, UITableViewDelegate, UITableV
         // Configurar o textfield para capturar o "Enter"
         newAccount.delegate = self
     }
-    
-    
+
     // method to run when table view cell is tapped ----- COPIADO DA List Animals
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
@@ -72,7 +74,7 @@ class BankAccountViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    
+    // fuincao para textos vazios
     private func checkEmptyFields () -> Bool {
         let fieldsEmpty : Bool = nameNewAccount.text == "" || newAccount.text == ""
         if (fieldsEmpty){
@@ -80,9 +82,4 @@ class BankAccountViewController: UIViewController, UITableViewDelegate, UITableV
         }
         return fieldsEmpty
     }
-    private func addNew () {
-        
-    }
-    
 }
-
