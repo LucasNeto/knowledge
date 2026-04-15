@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +13,7 @@
                 <outlet property="listTableView" destination="Ca3-jy-ZvT" id="KCL-AE-vGF"/>
                 <outlet property="nameNewAccountTextField" destination="1qH-gl-z5p" id="WLQ-cT-sK9"/>
                 <outlet property="newAccountTextField" destination="1uw-yL-842" id="ED7-vF-X9b"/>
-                <outlet property="statusNewAccount" destination="tf2-96-bqS" id="CRm-gy-iIM"/>
+                <outlet property="statusNewAccountLabel" destination="tf2-96-bqS" id="blV-Fh-jE0"/>
                 <outlet property="view" destination="2us-c6-Vqu" id="fuZ-Hz-gKC"/>
             </connections>
         </placeholder>
@@ -66,7 +66,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Add New Account"/>
                     <connections>
-                        <action selector="buttonAddNewAccount:" destination="-1" eventType="touchUpInside" id="Svw-Vj-mcs"/>
+                        <action selector="buttonClickedAddNewAccount:" destination="-1" eventType="touchUpInside" id="vSa-CO-DMz"/>
                     </connections>
                 </button>
             </subviews>
