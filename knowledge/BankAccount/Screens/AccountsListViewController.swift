@@ -9,12 +9,6 @@ import UIKit
 
 class AccountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, AccountDetailDelegate {
     
-    
-    func didUpdateBalance(index: Int, newBalance: Double) {
-        accountList[index].balance = newBalance
-    }
-    
-    
     let cellReuseIdentifier = "cell"
     var accountList: [BankAccount] = [
         BankAccount(name: "Guilherme D.", account: "4669", balance: 2000),
@@ -39,38 +33,18 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         listTableView.reloadData() // Recarrega a tabela toda vez que a tela aparecer
     }
     
-    // COPIADO DA List Animals // alterada com a sugestao para repassar as infoesmacoes da segunda tela
-    
-    // aletrado pela sugestao, verificando teste
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let viewController = AccountDetailViewController()
-//        // 1. Passa os dados para a segunda tela
-//        viewController.userBankIndex = indexPath.row
-//        viewController.userBank = self.accountList[indexPath.row]
-//        // 2. AVISA que esta tela (self) vai ouvir as mudanças que acontecerem lá
-//        viewController.delegate = self
-//        self.present(viewController, animated: true)
-//    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         // 1. Carrega o arquivo XIB pelo nome exato dele (geralmente o mesmo da classe)
         let viewController = AccountDetailViewController(nibName: "AccountDetailViewController", bundle: nil)
-        
         // 2. Passa os dados
         viewController.userBankIndex = indexPath.row
         viewController.userBank = self.accountList[indexPath.row]
-        
         // 3. FAZ O "APERTO DE MÃO" (Delegado)
         viewController.delegate = self
-        
         // 4. Abre a tela
         self.present(viewController, animated: true)
     }
-
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.accountList.count
@@ -86,6 +60,11 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
          cell.textLabel?.text = bank.name   // usa a propriedade
         
         return cell
+    }
+    
+    //aualizacao dos valores
+    func didUpdateBalance(index: Int, newBalance: Double) {
+        accountList[index].balance = newBalance
     }
     
     // Cria acoes necessarias para criacao de um novo usuario, if na funcao checkEmptyFields e necessario, para cheagem do campo de texto e por ser um campo opcional, no if criado 3 variaveis e senfo a ultima no tipo BankAccount, depois bankList.appende para adicionar a infomacao na variavel bankList, e por fim ListTableView.reloadData() para atualizar as infos na tabela.

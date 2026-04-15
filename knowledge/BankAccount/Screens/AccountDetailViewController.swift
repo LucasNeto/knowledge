@@ -7,7 +7,7 @@
 
 import UIKit
 
-// Contrato que define o que deve acontecer quando o saldo mudar
+// Define o que deve acontecer quando o saldo mudar
 protocol AccountDetailDelegate: AnyObject {
     func didUpdateBalance(index: Int, newBalance: Double)
 }
@@ -25,7 +25,6 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var withdrawalTextField: UITextField!
     @IBOutlet weak var depositTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let userBank = userBank {
@@ -40,9 +39,9 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func buttonClickedWithdrawal(_ sender: Any) {
         // Verifica se o campo está preenchido antes de continuar
         if !checkEmptyFields() {
-            if var withdrawValue = convertStringToDouble(text: withdrawalTextField.text), // Desembrulha o texto do campo convertendo para Double e o userBank garantindo que não é nil
+            if let withdrawValue = convertStringToDouble(text: withdrawalTextField.text), // Desembrulha o texto do campo convertendo para Double e o userBank garantindo que não é nil
                var userBank = userBank {
-                var calculation = userBank.balance - withdrawValue // Calcula o novo saldo somando o valor depositado
+                let calculation = userBank.balance - withdrawValue // Calcula o novo saldo somando o valor depositado
                 if let index = userBankIndex {
                     delegate?.didUpdateBalance(index: index, newBalance: calculation)
                 }
@@ -55,9 +54,9 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func buttonClickedDep(_ sender: Any) {
         if !checkEmptyFields() {
-            if var depositAmount = convertStringToDouble(text: depositTextField.text),
+            if let depositAmount = convertStringToDouble(text: depositTextField.text),
                var userBank = userBank {
-                var calculation = userBank.balance + depositAmount
+                let calculation = userBank.balance + depositAmount
                 if let index = userBankIndex {
                     delegate?.didUpdateBalance(index: index, newBalance: calculation)
                 }
