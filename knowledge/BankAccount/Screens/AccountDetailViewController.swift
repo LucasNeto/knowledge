@@ -52,7 +52,7 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func buttonClickedDep(_ sender: Any) {
+    @IBAction func buttonClickedDeposit(_ sender: Any) {
         if !checkEmptyFields() {
             if let depositAmount = convertStringToDouble(text: depositTextField.text),
                var userBank = userBank {
@@ -66,7 +66,7 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     private func convertStringToDouble (text:String?) -> Double? {
         return Double(text ?? "")
     }

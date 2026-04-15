@@ -16,8 +16,10 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
     ]
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var statusNewAccountLabel: UILabel!
-    @IBOutlet weak var newAccountTextField: UITextField!
-    @IBOutlet weak var nameNewAccountTextField: UITextField!
+    @IBOutlet weak var idAccountTextField: UITextField!
+    @IBOutlet weak var nameAccountTextField : UITextField!
+
+    
     
     // Copiado da LIST ANIMALS
     override func viewDidLoad() {
@@ -25,7 +27,7 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         self.listTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         listTableView.delegate = self
         listTableView.dataSource = self
-        newAccountTextField.delegate = self
+        idAccountTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +72,8 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
     // Cria acoes necessarias para criacao de um novo usuario, if na funcao checkEmptyFields e necessario, para cheagem do campo de texto e por ser um campo opcional, no if criado 3 variaveis e senfo a ultima no tipo BankAccount, depois bankList.appende para adicionar a infomacao na variavel bankList, e por fim ListTableView.reloadData() para atualizar as infos na tabela.
     @IBAction func buttonClickedAddNewAccount(_ sender: Any) {
         if !checkEmptyFields() {
-            if let nameNew = nameNewAccountTextField.text,
-               let accountNew = newAccountTextField.text{
+            if let nameNew = nameAccountTextField.text,
+               let accountNew = idAccountTextField.text{
                 let newRegistration = BankAccount(name:nameNew , account:accountNew, balance:0)
                 accountList.append(newRegistration)
                 listTableView.reloadData()
@@ -81,7 +83,7 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
     
     // fuincao para textos vazios
     private func checkEmptyFields () -> Bool {
-        let fieldsEmpty : Bool = nameNewAccountTextField.text == "" || newAccountTextField.text == ""
+        let fieldsEmpty : Bool = nameAccountTextField.text == "" || idAccountTextField.text == ""
         if (fieldsEmpty){
             statusNewAccountLabel.text = "Favor preencher todos os campos"
         }
