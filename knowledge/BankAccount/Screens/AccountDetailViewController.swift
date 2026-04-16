@@ -7,15 +7,9 @@
 
 import UIKit
 
-// Protocolo que define o contrato de comunicação entre telas
-// Usado para notificar a tela principal quando o saldo for atualizado
-protocol AccountDetailDelegate: AnyObject {
-    func didUpdateBalance(index: Int, newBalance: Double)
-}
 
 class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     
-    weak var delegate: AccountDetailDelegate?        // Referência para evitar retain cycle
     var repository: BankAccountRepository?           // Repositório compartilhado com a tela principal
     
     @IBOutlet weak var statusTextDepLabel: UILabel!
@@ -39,30 +33,30 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     
     // Executa o saque chamando o repositório e atualiza a tela com o resultado
     @IBAction func buttonClickedWithdrawal(_ sender: Any) {
-        repository?.withdraw(amount: withdrawalTextField.text) { result in
+        repository?.withdraw(amount: withdrawalTextField.text) { [weak self] result in
             switch result {
             case .success(let message):
-                self.statusTextWithdrawalLabel.text = message
-                if let userBank = repository?.getUserBank() {
-                    self.balanceAccountLabel.text = ("Saldo em conta de R$ \(userBank.balance)")
+                self?.statusTextWithdrawalLabel.text = message
+                if let userBank = self?.repository?.getUserBank() {
+                    self?.balanceAccountLabel.text = ("Saldo em conta de R$ \(userBank.balance)")
                 }
             case .failure(let error):
-                self.statusTextWithdrawalLabel.text = error.domain  // Exibe mensagem de erro
+                self?.statusTextWithdrawalLabel.text = error.domain  // Exibe mensagem de erro
             }
         }
     }
     
     // Executa o depósito chamando o repositório e atualiza a tela com o resultado
     @IBAction func buttonClickedDeposit(_ sender: Any) {
-        repository?.deposit(amount: depositTextField.text) { result in
+        repository?.deposit(amount: depositTextField.text) { [weak self] result in
             switch result {
             case .success(let message):
-                self.statusTextDepLabel.text = message
-                if let userBank = repository?.getUserBank() {
-                    self.balanceAccountLabel.text = ("Saldo em conta de R$ \(userBank.balance)")
+                self?.statusTextDepLabel.text = message
+                if let userBank = self?.repository?.getUserBank() {
+                    self?.balanceAccountLabel.text = ("Saldo em conta de R$ \(userBank.balance)")
                 }
             case .failure(let error):
-                self.statusTextDepLabel.text = error.domain  // Exibe mensagem de erro
+                self?.statusTextDepLabel.text = error.domain  // Exibe mensagem de erro
             }
         }
     }

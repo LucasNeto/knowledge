@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, AccountDetailDelegate {
+class AccountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     let cellReuseIdentifier = "cell"   // Identificador reutilizável da célula da tabela
     @IBOutlet weak var listTableView: UITableView!
@@ -39,7 +39,6 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         let viewController = AccountDetailViewController(nibName: "AccountDetailViewController", bundle: nil)
         repository.indexSelected = indexPath.row   // Informa ao repositório qual conta foi selecionada
         viewController.repository = repository     // Compartilha o repositório com a próxima tela
-        viewController.delegate = self             // Registra o delegate para receber atualizações
         self.present(viewController, animated: true)
     }
     
@@ -56,20 +55,15 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    // Implementação do protocolo — atualiza o saldo da conta no repositório
-    func didUpdateBalance(index: Int, newBalance: Double) {
-        repository.accountList[index].balance = newBalance
-    }
-    
     // Adiciona uma nova conta chamando o repositório e atualiza a tabela
     @IBAction func buttonClickedAddNewAccount(_ sender: Any) {
-        repository.addAccount(name: nameAccountTextField.text) { result in
+        repository.addAccount(name: nameAccountTextField.text) { [weak self] result in
             switch result {
             case .success(let message):
-                self.statusNewAccountLabel.text = message
-                self.listTableView.reloadData()   // Atualiza a tabela com a nova conta
+                self?.statusNewAccountLabel.text = message
+                self?.listTableView.reloadData()   // Atualiza a tabela com a nova conta
             case .failure(let error):
-                self.statusNewAccountLabel.text = error.domain  // Exibe mensagem de erro
+                self?.statusNewAccountLabel.text = error.domain  // Exibe mensagem de erro
             }
         }
     }
