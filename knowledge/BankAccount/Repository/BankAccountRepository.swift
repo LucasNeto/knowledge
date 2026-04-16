@@ -27,7 +27,7 @@ class BankAccountRepository {
         }
         // Valida se o valor digitado é numérico
         guard let withdrawValue = convertStringToDouble(text: amount) else {
-            completion(.failure(NSError(domain: "Favor preencher o campo com numero", code: -1)))
+            completion(.failure(NSError(domain: "Valor inválido", code: -1)))
             return
         }
         // Valida se há uma conta selecionada
@@ -49,7 +49,7 @@ class BankAccountRepository {
             return
         }
         guard let depositValue = convertStringToDouble(text: amount) else {
-            completion(.failure(NSError(domain: "Favor preencher o campo com numero", code: -1)))
+            completion(.failure(NSError(domain: "Valor inválido", code: -1)))
             return
         }
         guard let index = indexSelected else {
@@ -59,6 +59,50 @@ class BankAccountRepository {
         let calculation = accountList[index].balance + depositValue
         accountList[index].balance = calculation
         completion(.success("Voce depositou R$\(depositValue)"))
+    }
+    
+// Criado a funcao transfer, onde recebe os parametros responsaveis para realizar a trasngerencia, no caso amount (Valor), accountId (conta escolhida), completion (p/ mensagem ja utilizada em funcoes anteriores), entao a diferenca e que essa funcaon recebe um parametro a mais.
+// amount: valor digitado
+// accountId: ID da conta, tambem como String?
+// completion: Devolve sucesso ou erro, ja em funcoes anterioress
+    
+    func transfer(amount: String?, accountId: String?, completion:(Result<String, NSError>) -> Void) {
+        // Valida se o campo foi preenchido VAZIO
+        guard let amount = amount, amount != "" else {
+            completion(.failure(NSError(domain: "Favor preencher o valor", code: -1)))
+            return
+        }
+        
+        // valida valor prrenchido,funcao aux convertStringToDouble, caso seja diferente de numero, apresenta a mensagem
+        guard let transferValue = convertStringToDouble(text: amount) else {
+            completion(.failure(NSError(domain: "Valor inválido", code: -1)))
+            return
+        }
+        
+        // valida id da conta destino, como inteiro obrt
+        // valida conta origem, ou seja, a conta que quem vai ennviar o valor, utiliziado o indexSelected
+        guard let idText = accountId,
+              let accountOriginal = indexSelected,
+              let destination = Int(idText) else {
+            completion(.failure(NSError(domain: "ID da conta destino inválido", code: -1)))
+            return
+        }
+        
+        // encontra índice da conta destino
+        // firstIndex(where:) ----- Responsavel por percorrer o Array accountList
+        // { $0.accountId == targetId } ---- cada item da lista
+        // resto da estrutura me retorna a mensagem, assim como nas anteriores
+        guard let destinationIndex = accountList.firstIndex(where: { $0.accountId == destination }) else {
+            completion(.failure(NSError(domain: "Conta destino não encontrada", code: -1)))
+            return
+        }
+        
+        // calculo da transferencia
+        let calculation = accountList[accountOriginal].balance - transferValue
+        let receive = accountList[destinationIndex].balance + transferValue
+        accountList[accountOriginal].balance = calculation
+        accountList[destinationIndex].balance = receive
+        completion(.success("Transferência de R$\(transferValue) realizada com sucesso"))
     }
     
     // Adiciona uma nova conta na lista
