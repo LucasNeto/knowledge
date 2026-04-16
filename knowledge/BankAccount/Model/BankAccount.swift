@@ -9,6 +9,6 @@ import UIKit
 
 struct BankAccount {
     let name: String
-    let account: String
+    let accountId: Int
     var balance: Double
 }

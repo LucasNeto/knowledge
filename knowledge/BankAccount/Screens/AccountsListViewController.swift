@@ -9,19 +9,16 @@ import UIKit
 
 class AccountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, AccountDetailDelegate {
     
-    let cellReuseIdentifier = "cell"
-    var accountList: [BankAccount] = [
-        BankAccount(name: "Guilherme D.", account: "4669", balance: 2000),
-        BankAccount(name: "Larissa D.", account: "5889", balance: 3000)
-    ]
+    let cellReuseIdentifier = "cell"   // Identificador reutilizável da célula da tabela
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var statusNewAccountLabel: UILabel!
     @IBOutlet weak var idAccountTextField: UITextField!
-    @IBOutlet weak var nameAccountTextField : UITextField!
+    @IBOutlet weak var nameAccountTextField: UITextField!
+    
+    // Repositório único compartilhado com a AccountDetailViewController
+    let repository: BankAccountRepository = BankAccountRepository()
 
-    
-    
-    // Copiado da LIST ANIMALS
+    // Configura a tabela e os delegates ao carregar a tela pela primeira vez
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -30,63 +27,50 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         idAccountTextField.delegate = self
     }
     
+    // Recarrega a tabela toda vez que a tela aparecer para refletir alterações de saldo
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated) // Chama o comportamento padrão da tela antes de aparecer
-        listTableView.reloadData() // Recarrega a tabela toda vez que a tela aparecer
+        super.viewWillAppear(animated)
+        listTableView.reloadData()
     }
     
+    // Abre a tela de detalhes ao selecionar uma conta na lista
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // 1. Carrega o arquivo XIB pelo nome exato dele (geralmente o mesmo da classe)
         let viewController = AccountDetailViewController(nibName: "AccountDetailViewController", bundle: nil)
-        // 2. Passa os dados
-        viewController.userBankIndex = indexPath.row
-        viewController.userBank = self.accountList[indexPath.row]
-        // 3. FAZ O "APERTO DE MÃO" (Delegado)
-        viewController.delegate = self
-        // 4. Abre a tela
+        repository.indexSelected = indexPath.row   // Informa ao repositório qual conta foi selecionada
+        viewController.repository = repository     // Compartilha o repositório com a próxima tela
+        viewController.delegate = self             // Registra o delegate para receber atualizações
         self.present(viewController, animated: true)
     }
     
+    // Retorna o número total de contas na lista
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.accountList.count
+        return self.repository.accountList.count
     }
     
+    // Configura cada célula da tabela com o nome da conta
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 1. Use o 'tableView' que o próprio método fornece (ou ListTableView)
-        // 2. Use dequeueReusableCell(withIdentifier:for:) que é o padrão moderno
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
-        
-        // Como bankList é um dicionário, pegamos as chaves para listar os nomes
-        let bank = accountList[indexPath.row] // pega o objeto correto
-         cell.textLabel?.text = bank.name   // usa a propriedade
-        
+        let bank = repository.accountList[indexPath.row]
+        cell.textLabel?.text = bank.name
         return cell
     }
     
-    //aualizacao dos valores
+    // Implementação do protocolo — atualiza o saldo da conta no repositório
     func didUpdateBalance(index: Int, newBalance: Double) {
-        accountList[index].balance = newBalance
+        repository.accountList[index].balance = newBalance
     }
     
-    // Cria acoes necessarias para criacao de um novo usuario, if na funcao checkEmptyFields e necessario, para cheagem do campo de texto e por ser um campo opcional, no if criado 3 variaveis e senfo a ultima no tipo BankAccount, depois bankList.appende para adicionar a infomacao na variavel bankList, e por fim ListTableView.reloadData() para atualizar as infos na tabela.
+    // Adiciona uma nova conta chamando o repositório e atualiza a tabela
     @IBAction func buttonClickedAddNewAccount(_ sender: Any) {
-        if !checkEmptyFields() {
-            if let nameNew = nameAccountTextField.text,
-               let accountNew = idAccountTextField.text{
-                let newRegistration = BankAccount(name:nameNew , account:accountNew, balance:0)
-                accountList.append(newRegistration)
-                listTableView.reloadData()
+        repository.addAccount(name: nameAccountTextField.text) { result in
+            switch result {
+            case .success(let message):
+                self.statusNewAccountLabel.text = message
+                self.listTableView.reloadData()   // Atualiza a tabela com a nova conta
+            case .failure(let error):
+                self.statusNewAccountLabel.text = error.domain  // Exibe mensagem de erro
             }
         }
-    }
-    
-    // fuincao para textos vazios
-    private func checkEmptyFields () -> Bool {
-        let fieldsEmpty : Bool = nameAccountTextField.text == "" || idAccountTextField.text == ""
-        if (fieldsEmpty){
-            statusNewAccountLabel.text = "Favor preencher todos os campos"
-        }
-        return fieldsEmpty
     }
 }
