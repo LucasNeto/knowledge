@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountsListViewController" customModule="knowledge" customModuleProvider="target">
+            <connections>
+                <outlet property="idAccountTextField" destination="1uw-yL-842" id="kg2-Bn-dfw"/>
+                <outlet property="listTableView" destination="Ca3-jy-ZvT" id="KCL-AE-vGF"/>
+                <outlet property="nameAccountTextField" destination="1qH-gl-z5p" id="2P2-JU-bVU"/>
+                <outlet property="statusNewAccountLabel" destination="tf2-96-bqS" id="blV-Fh-jE0"/>
+                <outlet property="view" destination="2us-c6-Vqu" id="fuZ-Hz-gKC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2us-c6-Vqu">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-jy-ZvT">
+                    <rect key="frame" x="0.0" y="119.99999999999997" width="393" height="430.33333333333326"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Account List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-Ob-yjW">
+                    <rect key="frame" x="0.0" y="64" width="393" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qH-gl-z5p">
+                    <rect key="frame" x="32" y="634.66666666666663" width="66" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1uw-yL-842">
+                    <rect key="frame" x="279.33333333333331" y="634.66666666666663" width="81.666666666666686" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="               " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-96-bqS" userLabel="StatusFields">
+                    <rect key="frame" x="0.0" y="799.66666666666663" width="393" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdh-je-ecT">
+                    <rect key="frame" x="0.0" y="732.66666666666663" width="393" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add New Account"/>
+                    <connections>
+                        <action selector="buttonClickedAddNewAccount:" destination="-1" eventType="touchUpInside" id="vSa-CO-DMz"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar uma nova conta:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qG-Bh-ZD7">
+                    <rect key="frame" x="0.0" y="582.33333333333337" width="393" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vg7-FH-qu4"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ca3-jy-ZvT" firstAttribute="leading" secondItem="vg7-FH-qu4" secondAttribute="leading" id="1B7-Wk-MH6"/>
+                <constraint firstItem="7qG-Bh-ZD7" firstAttribute="top" secondItem="Ca3-jy-ZvT" secondAttribute="bottom" constant="32" id="AuR-3N-Fwy"/>
+                <constraint firstItem="7qG-Bh-ZD7" firstAttribute="leading" secondItem="vg7-FH-qu4" secondAttribute="leading" id="JZP-wc-JsL"/>
+                <constraint firstItem="1uw-yL-842" firstAttribute="top" secondItem="7qG-Bh-ZD7" secondAttribute="bottom" constant="32" id="LU3-EM-H01"/>
+                <constraint firstItem="Y9d-Ob-yjW" firstAttribute="leading" secondItem="2us-c6-Vqu" secondAttribute="leading" id="N3Q-Db-yot"/>
+                <constraint firstItem="Y9d-Ob-yjW" firstAttribute="top" secondItem="2us-c6-Vqu" secondAttribute="top" constant="64" id="XuQ-Yl-KKs"/>
+                <constraint firstAttribute="bottom" secondItem="tf2-96-bqS" secondAttribute="bottom" constant="32" id="ZJG-bu-8yV"/>
+                <constraint firstItem="tf2-96-bqS" firstAttribute="leading" secondItem="vg7-FH-qu4" secondAttribute="leading" id="grM-AI-XrR"/>
+                <constraint firstItem="vg7-FH-qu4" firstAttribute="trailing" secondItem="1uw-yL-842" secondAttribute="trailing" constant="32" id="h1B-hh-Hag"/>
+                <constraint firstItem="vg7-FH-qu4" firstAttribute="trailing" secondItem="vdh-je-ecT" secondAttribute="trailing" id="jrX-6v-Re9"/>
+                <constraint firstItem="tf2-96-bqS" firstAttribute="top" secondItem="vdh-je-ecT" secondAttribute="bottom" constant="32" id="nYC-kt-Amg"/>
+                <constraint firstItem="1qH-gl-z5p" firstAttribute="top" secondItem="7qG-Bh-ZD7" secondAttribute="bottom" constant="32" id="nfH-JZ-H0n"/>
+                <constraint firstItem="vdh-je-ecT" firstAttribute="top" secondItem="1qH-gl-z5p" secondAttribute="bottom" constant="64" id="pHq-aW-r2F"/>
+                <constraint firstItem="vg7-FH-qu4" firstAttribute="trailing" secondItem="tf2-96-bqS" secondAttribute="trailing" id="pol-he-wVi"/>
+                <constraint firstItem="Ca3-jy-ZvT" firstAttribute="top" secondItem="Y9d-Ob-yjW" secondAttribute="bottom" constant="32" id="q1n-8Z-kAS"/>
+                <constraint firstItem="1qH-gl-z5p" firstAttribute="leading" secondItem="vg7-FH-qu4" secondAttribute="leading" constant="32" id="qcA-Cd-rS7"/>
+                <constraint firstItem="Ca3-jy-ZvT" firstAttribute="trailing" secondItem="vg7-FH-qu4" secondAttribute="trailing" id="qiR-mB-dpV"/>
+                <constraint firstAttribute="trailing" secondItem="Y9d-Ob-yjW" secondAttribute="trailing" id="tAJ-w0-WmP"/>
+                <constraint firstItem="vdh-je-ecT" firstAttribute="leading" secondItem="vg7-FH-qu4" secondAttribute="leading" id="y8f-om-a68"/>
+                <constraint firstItem="vg7-FH-qu4" firstAttribute="trailing" secondItem="7qG-Bh-ZD7" secondAttribute="trailing" id="yRF-0p-cpM"/>
+            </constraints>
+            <point key="canvasLocation" x="87.786259541984734" y="75.352112676056336"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
