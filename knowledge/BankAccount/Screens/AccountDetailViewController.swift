@@ -48,7 +48,7 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     }
     // Executa o depósito chamando o repositório e atualiza a tela com o resultado
     @IBAction func buttonClickedDeposit(_ sender: Any) {
-        repository?.deposit(amount: transferTextField.text) { [weak self] result in
+        repository?.deposit(amount: depositTextField.text) { [weak self] result in
             switch result {
             case .success(let message):
                 self?.statusTextDepLabel.text = message
@@ -62,7 +62,7 @@ class AccountDetailViewController: UIViewController, UITextFieldDelegate {
     }
     // replicado conforme botoes anteriores, porem existe um parametro a mias na funcao, e idAccount recebe o valor do campo de texto do ID
     @IBAction func buttonClickedTransfer(_ sender: Any) {
-   repository?.transfer(amount: transferTextField.text, accountId: idAccountTransferTextField.text) { [weak self] result in
+        repository?.transfer(amount: transferTextField.text, accountId: idAccountTransferTextField.text) { [weak self] result in
             switch result {
             case .success(let message):
                 self?.statusTextTransferLabel.text = message
