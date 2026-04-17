@@ -9,15 +9,14 @@ import UIKit
 
 class AccountsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    // Repositório único compartilhado com a AccountDetailViewController
+    let repository: BankAccountRepository = BankAccountRepository()
     let cellReuseIdentifier = "cell"   // Identificador reutilizável da célula da tabela
+    
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var statusNewAccountLabel: UILabel!
     @IBOutlet weak var idAccountTextField: UITextField!
     @IBOutlet weak var nameAccountTextField: UITextField!
-    
-    // Repositório único compartilhado com a AccountDetailViewController
-    let repository: BankAccountRepository = BankAccountRepository()
-
     // Configura a tabela e os delegates ao carregar a tela pela primeira vez
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +25,11 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         listTableView.dataSource = self
         idAccountTextField.delegate = self
     }
-    
     // Recarrega a tabela toda vez que a tela aparecer para refletir alterações de saldo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         listTableView.reloadData()
     }
-    
     // Abre a tela de detalhes ao selecionar uma conta na lista
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -41,12 +38,10 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         viewController.repository = repository     // Compartilha o repositório com a próxima tela
         self.present(viewController, animated: true)
     }
-    
     // Retorna o número total de contas na lista
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.repository.accountList.count
     }
-    
     // Configura cada célula da tabela com o nome da conta
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
@@ -54,7 +49,6 @@ class AccountsListViewController: UIViewController, UITableViewDelegate, UITable
         cell.textLabel?.text = bank.name
         return cell
     }
-    
     // Adiciona uma nova conta chamando o repositório e atualiza a tabela
     @IBAction func buttonClickedAddNewAccount(_ sender: Any) {
         repository.addAccount(name: nameAccountTextField.text) { [weak self] result in
