@@ -9,5 +9,5 @@ import UIKit
 
 struct KnowledgeItem {
     var title: String
-    var viewController: UIViewController
+    var viewController: UIViewController.Type
 }

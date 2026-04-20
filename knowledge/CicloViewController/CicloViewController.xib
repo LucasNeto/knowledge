@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CicloViewController" customModule="knowledge" customModuleProvider="target">
+            <connections>
+                <outlet property="didAppearTextLabel" destination="6iv-M3-68W" id="ONq-KH-HRW"/>
+                <outlet property="didDisappearTextLabel" destination="MVK-AA-ckR" id="OMB-pn-sE4"/>
+                <outlet property="didLoadTextLabel" destination="S4K-gJ-fhX" id="JtM-0M-c1n"/>
+                <outlet property="view" destination="sYz-YW-auC" id="6gW-ca-cXZ"/>
+                <outlet property="willAppearTextLabel" destination="G2Q-DC-Irm" id="CTd-JS-bkm"/>
+                <outlet property="willDisappearTextLabel" destination="dha-U6-A4a" id="bTJ-DC-PBK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="sYz-YW-auC">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciclo de vida ViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-ul-WZN">
+                    <rect key="frame" x="0.0" y="64" width="393" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StatusDidLoad:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4K-gJ-fhX" userLabel="Status DidLoad:">
+                    <rect key="frame" x="16" y="151" width="361" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status WillAppear:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2Q-DC-Irm" userLabel="Status WillAppear:">
+                    <rect key="frame" x="16" y="235.33333333333334" width="361" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status WillDisappear:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dha-U6-A4a" userLabel="Status WillDisappear:">
+                    <rect key="frame" x="16" y="404" width="361" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status DidDisappear:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVK-AA-ckR" userLabel="Status DidDisappear:">
+                    <rect key="frame" x="16" y="488.33333333333331" width="361" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status DidAppear:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-M3-68W" userLabel="Status DidAppear:">
+                    <rect key="frame" x="16" y="319.66666666666669" width="361" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="b4s-XH-W5r"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="UsD-ul-WZN" secondAttribute="trailing" id="55P-4Q-GeI"/>
+                <constraint firstItem="dha-U6-A4a" firstAttribute="leading" secondItem="b4s-XH-W5r" secondAttribute="leading" constant="16" id="5dq-9b-cbl"/>
+                <constraint firstItem="dha-U6-A4a" firstAttribute="top" secondItem="6iv-M3-68W" secondAttribute="bottom" constant="64" id="72c-0l-gkL"/>
+                <constraint firstItem="b4s-XH-W5r" firstAttribute="trailing" secondItem="6iv-M3-68W" secondAttribute="trailing" constant="16" id="AZE-1C-6rU"/>
+                <constraint firstItem="b4s-XH-W5r" firstAttribute="trailing" secondItem="dha-U6-A4a" secondAttribute="trailing" constant="16" id="DOn-Gb-VhZ"/>
+                <constraint firstItem="MVK-AA-ckR" firstAttribute="top" secondItem="dha-U6-A4a" secondAttribute="bottom" constant="64" id="DaO-qz-A3I"/>
+                <constraint firstItem="S4K-gJ-fhX" firstAttribute="leading" secondItem="b4s-XH-W5r" secondAttribute="leading" constant="16" id="HRP-gn-MCV"/>
+                <constraint firstItem="MVK-AA-ckR" firstAttribute="leading" secondItem="b4s-XH-W5r" secondAttribute="leading" constant="16" id="LPz-R3-WZb"/>
+                <constraint firstItem="G2Q-DC-Irm" firstAttribute="top" secondItem="S4K-gJ-fhX" secondAttribute="bottom" constant="64" id="Mrw-Kf-DyJ"/>
+                <constraint firstItem="UsD-ul-WZN" firstAttribute="leading" secondItem="sYz-YW-auC" secondAttribute="leading" id="OxJ-Ui-Yji"/>
+                <constraint firstItem="6iv-M3-68W" firstAttribute="leading" secondItem="b4s-XH-W5r" secondAttribute="leading" constant="16" id="RQX-cc-LeW"/>
+                <constraint firstItem="b4s-XH-W5r" firstAttribute="trailing" secondItem="MVK-AA-ckR" secondAttribute="trailing" constant="16" id="Vbc-vd-E11"/>
+                <constraint firstItem="UsD-ul-WZN" firstAttribute="top" secondItem="sYz-YW-auC" secondAttribute="top" constant="64" id="YbV-Rw-a8y"/>
+                <constraint firstItem="S4K-gJ-fhX" firstAttribute="top" secondItem="UsD-ul-WZN" secondAttribute="bottom" constant="64" id="bOm-kD-oi4"/>
+                <constraint firstItem="G2Q-DC-Irm" firstAttribute="leading" secondItem="b4s-XH-W5r" secondAttribute="leading" constant="16" id="j2O-NK-TJl"/>
+                <constraint firstItem="b4s-XH-W5r" firstAttribute="trailing" secondItem="S4K-gJ-fhX" secondAttribute="trailing" constant="16" id="rqR-UI-v41"/>
+                <constraint firstItem="b4s-XH-W5r" firstAttribute="trailing" secondItem="G2Q-DC-Irm" secondAttribute="trailing" constant="16" id="xRk-Xr-TiY"/>
+                <constraint firstItem="6iv-M3-68W" firstAttribute="top" secondItem="G2Q-DC-Irm" secondAttribute="bottom" constant="64" id="zOb-Aa-7aj"/>
+            </constraints>
+            <point key="canvasLocation" x="86.25954198473282" y="17.605633802816904"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
