@@ -8,16 +8,16 @@
 import UIKit
 
 class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
     
     let knowledgeList: [KnowledgeItem] = [
-        KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController()),
-        KnowledgeItem(title: "Variables", viewController: VariablesViewController()),
-        KnowledgeItem(title: "If Else", viewController: IfelseViewController()),
-        KnowledgeItem(title: "Calculator", viewController: CalculatorViewController()),
-        KnowledgeItem(title: "Comparison", viewController: ComparisonViewController()),
-        KnowledgeItem(title: "Bank List", viewController: AccountsListViewController()),
-        KnowledgeItem(title: "Flickr Image", viewController: FlickrViewController()),
+        KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController.self),
+        KnowledgeItem(title: "Variables", viewController: VariablesViewController.self),
+        KnowledgeItem(title: "If Else", viewController: IfelseViewController.self),
+        KnowledgeItem(title: "Calculator", viewController: CalculatorViewController.self),
+        KnowledgeItem(title: "Comparison", viewController: ComparisonViewController.self),
+        KnowledgeItem(title: "Bank List", viewController: AccountsListViewController.self),
+        KnowledgeItem(title: "Flickr Image", viewController: FlickrViewController.self),
+        KnowledgeItem(title: "Life Cycle ViewController", viewController: LifeCycleViewController.self)
     ]
     
     let cellReuseIdentifier = "cell"
@@ -48,8 +48,6 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        
-        
         if let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier){
             cell.textLabel?.text = self.knowledgeList[indexPath.row].title
             cell.imageView?.image = UIImage(named: "search")
@@ -58,13 +56,10 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         return UITableViewCell()
     }
-    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
-        let viewController = self.knowledgeList[indexPath.row].viewController
+        let viewController = self.knowledgeList[indexPath.row].viewController.init()
         self.present(viewController,animated: true)
     }
 }
-
-

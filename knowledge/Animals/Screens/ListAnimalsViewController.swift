@@ -9,8 +9,6 @@ import UIKit
 
 class ListAnimalsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
-    
     let animals: [Animal] = [
         Animal(name: "Elefante 🐘", habitat: "Natural de Africa e Asia", yearsOld: "Vive 70 anos", color: .gray),
         Animal(name: "Pinguim 🐧", habitat: "Natural da Antartica", yearsOld: "Vive 20 anos", color: .white),
@@ -18,12 +16,6 @@ class ListAnimalsViewController: UIViewController, UITableViewDelegate, UITableV
         Animal(name: "Tartaruga-Gigante 🐢", habitat: "Natural de Galapagos", yearsOld: "Vive mais de 100 anos", color: .green),
         Animal(name: "Tigre 🐅", habitat: "Natural em Florestas e Savanas da Asia", yearsOld: "Vive 20", color: .orange)
     ]
-    
-//    let animals: [String] = [
-//
-//        "Horse", "Cow", "Camel", "Sheep", "Goat", "Cavalo", "Mamaco", "Galinha"
-//
-//    ]
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -61,8 +53,6 @@ class ListAnimalsViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell
     }
-    
-
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
