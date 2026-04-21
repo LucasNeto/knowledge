@@ -13,10 +13,6 @@ class FlickrViewController: UIViewController {
     
     let repository = FlickrRepository()
     
-    // Array que armazena as fotos retornadas pela API.
-    // É a "fonte da verdade" — quando muda, a CollectionView é atualizada.
-    var photos: [FlickrItem] = []
-    
     // Referência à CollectionView criada no Storyboard
     @IBOutlet weak var imageCollecyionView: UICollectionView!
     // Feito a barra de pesquisa
@@ -24,31 +20,25 @@ class FlickrViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Registra PhotoCell como a célula usada para o identifier "PhotoCell".
         // Necessário porque a célula foi criada por código, não no Storyboard.
         imageCollecyionView.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")
-        
         // Define quem responde as perguntas: "quantas células?" e "quanto é cada célula?"
         // CORREÇÃO: adicionado "= self" — sem isso a linha só lê o valor atual, não atribui nada
         imageCollecyionView.dataSource = self
-        
         // Define quem controla o layout: tamanho e espaçamento das células
         // CORREÇÃO: adicionado "= self" — mesmo motivo acima
         imageCollecyionView.delegate = self
-        
         // Define o delegate da searchBar para capturar o botão de busca
         // CORREÇÃO: adicionado "= self" — mesmo motivo acima
         searchBar.delegate = self
-        
         // Inicia a busca das fotos na API
         fetchFlickrFeed()
     }
     
     func fetchFlickrFeed() {
-        repository.fetchPhotos(searchText: searchBar.text) { [weak self] items in
+        repository.fetchPhotos(searchText: searchBar.text) { [weak self] _ in
             DispatchQueue.main.async {
-                self?.photos = items
                 self?.imageCollecyionView.reloadData()
             }
         }
@@ -70,7 +60,7 @@ extension FlickrViewController: UICollectionViewDataSource {
     // Pergunta 1: quantas células existem?
     // Retorna o número de fotos carregadas da API
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return repository.photos.count
     }
     
     // Pergunta 2: como é a célula na posição X?
@@ -87,7 +77,7 @@ extension FlickrViewController: UICollectionViewDataSource {
         cell.imageView.image = nil
         
         // Pega o item do array correspondente a esta posição
-        let photo = photos[indexPath.item]
+        let photo = repository.photos[indexPath.item]
         
         // Se a foto tiver URL válida, inicia o download da imagem
         if let urlPath = photo.imageURL {
@@ -100,7 +90,6 @@ extension FlickrViewController: UICollectionViewDataSource {
     // Roda em background para não travar a UI durante o download.
     func loadImage(from urlString: String, into imageView: UIImageView) {
         guard let url = URL(string: urlString) else { return }
-        
         URLSession.shared.dataTask(with: url) { data, _, _ in
             // Verifica se vieram dados e se formam uma imagem válida
             if let data = data, let image = UIImage(data: data) {

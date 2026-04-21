@@ -8,7 +8,6 @@
 import UIKit
 
 class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
     
     let knowledgeList: [KnowledgeItem] = [
         KnowledgeItem(title: "Animais", viewController: ListAnimalsViewController.self),
@@ -18,7 +17,7 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         KnowledgeItem(title: "Comparison", viewController: ComparisonViewController.self),
         KnowledgeItem(title: "Bank List", viewController: AccountsListViewController.self),
         KnowledgeItem(title: "Flickr Image", viewController: FlickrViewController.self),
-        KnowledgeItem(title: "Ciclo de vida ViewController", viewController: CicloViewController.self)
+        KnowledgeItem(title: "Life Cycle ViewController", viewController: LifeCycleViewController.self)
     ]
     
     let cellReuseIdentifier = "cell"
@@ -49,8 +48,6 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        
-        
         if let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier){
             cell.textLabel?.text = self.knowledgeList[indexPath.row].title
             cell.imageView?.image = UIImage(named: "search")
@@ -59,7 +56,6 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         return UITableViewCell()
     }
-    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
@@ -67,5 +63,3 @@ class KnowledgeViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(viewController,animated: true)
     }
 }
-
-
